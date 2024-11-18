@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anacha Photo</title>
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="shared/styles/reset.css">
+    <link rel="stylesheet" href="shared/styles/variables.css">
+    <link rel="stylesheet" href="shared/styles/typography.css">
+    <link rel="stylesheet" href="shared/styles/utilities.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Content will be loaded here -->
+    </div>
+
+    <!-- jQuery -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Main script -->
+    <script>
+        // Simple router
+        $(document).ready(function () {
+            const routes = {
+                '/': 'features/home/index.html',
+                '/products': 'features/products/index.html',
+                '/reviews': 'features/reviews/index.html',
+                '/contact': 'features/contact/index.html'
+            };
+
+            function loadContent(path) {
+                const route = routes[path] || routes['/'];
+                $('#app').load(route);
+            }
+
+            // Initial load
+            loadContent(window.location.pathname);
+        });
+    </script>
+</body>
+
+</html>
